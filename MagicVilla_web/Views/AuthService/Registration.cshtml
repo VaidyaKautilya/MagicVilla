@@ -1,0 +1,28 @@
+﻿
+@model MagicVilla_web.Models.Dto.Authentication.RegistrationRequestDTO
+
+
+<h1>Registration</h1>
+
+<form method="post">
+    <div asp-validation-summary="All" class="text-danger"></div>
+    <div class="row">
+        <div class="col-6 offset-3 pb-3">
+            <input class="form-control"  asp-for="UserName" type="text" placeholder ="UserName"/>
+        </div>
+        <div class="col-6 offset-3 pb-3">
+            <input class="form-control"  asp-for="Name" type="text" placeholder ="UserName"/>
+        </div>
+        <div class="col-6 offset-3 pb-3">
+            <input class="form-control"  asp-for="Password" type="password" placeholder ="Password"/>
+        </div>
+        <div class="col-6 offset-3 pb-3">
+            <button type="submit" value="submit" class="btn btn-outline-primary btn-lg">Registration</button>
+        </div>
+    </div>
+</form>
+
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}

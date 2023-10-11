@@ -1,0 +1,50 @@
+﻿@model MagicVilla_web.Models.Dto.Villa.VillaDTO
+
+@{
+    ViewData["Title"] = "Delete";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+<div class="container">
+    <form asp-action="Delete" method="post" enctype="multipart/form-data">
+        <input hidden asp-for="Id"/>
+         <div class="form-group">
+            <label asp-for="Name">Name:</label>
+            <input asp-for="Name" class="form-control" disabled>
+        </div>
+
+        <div class="form-group">
+            <label asp-for="Details">Details:</label>
+            <textarea asp-for="Details" class="form-control" rows="4" disabled></textarea>
+        </div>
+
+        <div class="form-group">
+            <label asp-for="Rate">Rate:</label>
+            <input asp-for="Rate" class="form-control" type="number" step="0.01" disabled>
+        </div>
+
+        <div class="form-group">
+            <label asp-for="SqFt">SqFt:</label>
+            <input asp-for="SqFt" class="form-control" type="number" disabled>
+        </div>
+
+        <div class="form-group">
+            <label asp-for="Occupation">Occupation:</label>
+            <input asp-for="Occupation" class="form-control" type="number" disabled>
+        </div>
+
+        <div class="form-group">
+            <label asp-for="ImageUrl">Image URL:</label>
+            <input asp-for="ImageUrl" class="form-control" type="url" disabled>
+        </div>
+
+        <div class="form-group">
+            <label asp-for="Aminity">Amenity:</label>
+            <input asp-for="Aminity" class="form-control" disabled>
+        </div>
+
+        <button type="submit" class="btn btn-outline-danger mt-3">Delete</button>
+         <a asp-controller="Villa" asp-action="IndexVilla"  class="btn btn-outline-info mt-3"><i class="bi bi-arrow-left-circle-fill"></i> Back to List</a>
+    </form>
+</div>

@@ -1,0 +1,46 @@
+﻿@model MagicVilla_web.Models.VM.VillaNumberUpdateVM
+
+@{
+    ViewData["Title"] = "Create";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+<div class="container">
+    <h2>Update Villa</h2>
+    <form asp-action="Update" method="post" enctype="multipart/form-data">
+        <input hidden asp-for ="VillaNumber.VillaNo"/>
+        <div class="row">
+            <div class="col-md-12">
+                <div asp-validation-summary="All" class="text-danger"></div>
+            </div>
+            <div class="col-md-12">
+                <div class="form-group">
+                    <label asp-for="VillaNumber.VillaNo">Villa No:</label>
+                    <input asp-for="VillaNumber.VillaNo" class="form-control" required>
+                    <span asp-validation-for="VillaNumber.VillaNo" class="text-danger"></span>
+                </div>
+            </div>
+            <div class="col-md-12">
+                <div class="form-group">
+                    <label asp-for="VillaNumber.VillaId">Villa Name:</label>
+                    <select asp-for="VillaNumber.VillaId" class="form-control" asp-items="@Model.VillaList">
+                        <options disabled selected>--select --</options>
+                    </select>
+                    <span asp-validation-for="VillaNumber.VillaId" class="text-danger"></span>
+                </div>
+            </div>
+            <div class="col-md-12">
+                     <div class="form-group">
+            <label asp-for="VillaNumber.SpecialDetails">Details:</label>
+            <textarea asp-for="VillaNumber.SpecialDetails" class="form-control" rows="4" required></textarea>
+            <span asp-validation-for="VillaNumber.SpecialDetails" class="text-danger"></span>
+        </div>
+            </div>
+            <div class="col-md-12">
+                <button type="submit" value ="Update" class="btn btn-outline-warning mt-3">Update</button>
+         <a asp-controller="VillaNumber" asp-action="IndexVillaNumber"  class="btn btn-outline-info mt-3"><i class="bi bi-arrow-left-circle-fill"></i> Back to List</a>
+            </div>
+        </div>
+    </form>
+</div>

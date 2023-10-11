@@ -1,0 +1,54 @@
+﻿@model IEnumerable<MagicVilla_web.Models.Dto.VillaNumber.VillaNumberDto>
+@{
+    ViewData["Title"] = "IndexVillaNumber";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="container p-4 border">
+    <div class="row pb-2">
+        <div class="col">
+            <h1 class="text-primary">Villa Number List</h1>
+        </div>
+        <div class="col text-end pt-1">
+            <a 
+                asp-controller="VillaNumber" 
+                asp-action="Create"  
+                class="btn btn-outline-primary">
+                <i class="bi bi-plus-square-fill"></i> Create New Villa Number</a>
+        </div>
+    </div>   
+     <div class="row">
+        <div class="col-md-12">
+            <div class="form-group">
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th>Sr. No</th>
+                            <th>Villa Name</th>
+                            <th>Villa Number</th>
+                            <th>Action</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @{
+                            var counter = 1;
+                        }
+                        @foreach (var item in Model)
+                        {
+                                <tr>
+                                    <td>@counter</td>
+                                    <td>@item.Villa.Name</td>
+                                    <td>@item.VillaNo</td>
+                                    <td>
+                                        <a asp-controller="VillaNumber" asp-action="Update" asp-route-VillaNo="@item.VillaNo"  class="btn btn-outline-warning"><i class="bi bi-pencil"></i> Update</a>
+                                        <a asp-controller="VillaNumber" asp-action="Delete" asp-route-VillaNo="@item.VillaNo"  class="btn btn-outline-danger"><i class="bi bi-trash"></i> Delete</a>
+                                    </td>
+                                </tr>
+                            counter++;
+                        }
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
